@@ -1,5 +1,5 @@
+import config from "@/config.json";
 import { PrismaClient } from "@prisma/client";
-import config from "@root/config.json";
 import type { CreateHTTPContextOptions } from "@trpc/server/adapters/standalone";
 
 export async function createContext(options: CreateHTTPContextOptions) {

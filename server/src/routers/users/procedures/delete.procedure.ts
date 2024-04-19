@@ -1,4 +1,4 @@
-import { procedure } from "@root/trpc";
+import { procedure } from "@/trpc";
 import schema from "@routers/users/procedures/schema";
 
 export default procedure.input(schema).mutation(async (opts) => {

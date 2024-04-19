@@ -1,4 +1,4 @@
-import { procedure } from "@root/trpc";
+import { procedure } from "@/trpc";
 import { z } from "zod";
 
 export default procedure

@@ -1,4 +1,4 @@
-import { createContext } from "@root/context";
+import { createContext } from "@/context";
 import { appRouter } from "@routers/app/app.router";
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
 
@@ -7,4 +7,4 @@ createHTTPServer({
   router: appRouter,
 }).listen(3000);
 
-export type { AppRouter } from "./routers/app/app.router";
+export type { AppRouter } from "@routers/app/app.router";

@@ -23,9 +23,9 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
-    "baseUrl": "./src/",
+    "baseUrl": "src",
     "paths": {
-      "@root/*": ["*"],
+      "@/*": ["*"],
       "@routers/*": ["routers/*"]
     }
   }

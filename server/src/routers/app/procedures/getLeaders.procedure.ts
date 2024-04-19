@@ -1,4 +1,4 @@
-import { procedure } from "@root/trpc";
+import { procedure } from "@/trpc";
 
 export default procedure.query(async (opts) => {
   return await opts.ctx.prisma.user.findMany({
