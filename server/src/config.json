@@ -1,0 +1,7 @@
+{
+  "catchFish": {
+    "min": 1,
+    "max": 10
+  },
+  "getLeaders": 5
+}
