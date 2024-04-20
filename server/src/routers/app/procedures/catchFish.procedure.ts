@@ -2,7 +2,7 @@ import { procedure } from "@/trpc";
 import { z } from "zod";
 
 export default procedure
-  .input(z.object({ id: z.string() }))
+  .input(z.object({ id: z.number() }))
   .mutation(async (opts) => {
     const config = opts.ctx.config;
 
@@ -16,7 +16,7 @@ export default procedure
       Math.random() * (maxCatchFloored - minCatchCeiled + 1) + minCatchCeiled
     );
 
-    await opts.ctx.prisma.user.update({
+    const user = await opts.ctx.prisma.user.update({
       data: {
         fish: {
           increment: catched,
@@ -29,5 +29,6 @@ export default procedure
 
     return {
       catched,
+      user
     };
   });

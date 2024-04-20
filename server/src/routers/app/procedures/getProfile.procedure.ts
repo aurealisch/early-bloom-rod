@@ -2,7 +2,7 @@ import { procedure } from "@/trpc";
 import { z } from "zod";
 
 export default procedure
-  .input(z.object({ id: z.string() }))
+  .input(z.object({ id: z.number() }))
   .query(async (opts) => {
     const User = opts.ctx.prisma.user;
     const id = opts.input.id;

@@ -8,11 +8,15 @@ export default procedure
       telegramId: z.string().optional(),
     })
   )
-  .mutation(async (opts) => {
-    await opts.ctx.prisma.user.create({
-      data: {
+  .query(async (opts) => {
+    const user = await opts.ctx.prisma.user.findUnique({
+      where: {
         discordId: opts.input.discordId,
         telegramId: opts.input.telegramId,
       },
     });
+
+    return {
+      id: user!!.id,
+    };
   });

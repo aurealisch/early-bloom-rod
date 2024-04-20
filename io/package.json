@@ -1,6 +1,6 @@
 {
-  "name": "@early-bloom-rod/server",
-  "version": "0.1.7",
+  "name": "@early-bloom-rod/io",
+  "version": "0.1.8",
   "module": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,12 +15,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^5.12.1",
-    "@sapphire/utilities": "^3.15.3",
-    "@trpc/server": "^11.0.0-rc.342",
     "bun-plugin-dts": "^0.2.3",
-    "prisma": "^5.12.1",
-    "zod": "^3.22.5"
+    "socket.io": "^4.7.5"
   },
   "scripts": {
     "start": "bun src/index.ts",

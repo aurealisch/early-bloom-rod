@@ -1,10 +1,16 @@
 import { procedure } from "@/trpc";
-import schema from "@routers/users/procedures/schema";
+import { z } from "zod";
 
-export default procedure.input(schema).mutation(async (opts) => {
-  await opts.ctx.prisma.user.delete({
-    where: {
-      id: opts.input.id,
-    },
+export default procedure
+  .input(
+    z.object({
+      id: z.number(),
+    })
+  )
+  .mutation(async (opts) => {
+    await opts.ctx.prisma.user.delete({
+      where: {
+        id: opts.input.id,
+      },
+    });
   });
-});
