@@ -1,21 +1,26 @@
-import Context from "@/Context";
-import { catchFish } from "@commands/catchFish.command";
-import { createAccount } from "@commands/createAccount.command";
-import { deleteAccount } from "@commands/deleteAccount.command";
-import { leaders } from "@commands/leaders.command";
-import { linkDiscord } from "@commands/linkDiscord.command";
-import { profile } from "@commands/profile.command";
+import { socket } from '@/socket';
 import {
   EarlyBloomRodCode,
   type EarlyBloomRodRequest,
-} from "@early-bloom-rod/io";
-import { Bot } from "grammy";
+} from '@early-bloom-rod/io';
+import { readdirSync } from 'fs';
+import { Bot, type Composer } from 'grammy';
+import { join } from 'path';
 
-const bot = new Bot(process.env.TOKEN, {
-  ContextConstructor: Context,
+const bot = new Bot(process.env.TOKEN);
+export const api = bot.api;
+
+const commandsFolder = join(__dirname, 'commands');
+
+readdirSync(commandsFolder).forEach(async (commandsFile) => {
+  const command: { composer: Composer<any> } = await import(
+    join(commandsFolder, commandsFile)
+  );
+
+  bot.use(command.composer);
 });
 
-bot.callbackQuery("ok", async (context) => {
+bot.callbackQuery('ok', async (context) => {
   const author = await context.getAuthor();
 
   const request: EarlyBloomRodRequest = {
@@ -25,14 +30,14 @@ bot.callbackQuery("ok", async (context) => {
     },
   };
 
-  context.socket.emit("message", JSON.stringify(request));
+  socket.emit('message', JSON.stringify(request));
 
   await context.answerCallbackQuery({
-    text: "Ок",
+    text: 'Ок',
   });
 });
 
-bot.callbackQuery("cancel", async (context) => {
+bot.callbackQuery('cancel', async (context) => {
   const author = await context.getAuthor();
 
   const request: EarlyBloomRodRequest = {
@@ -42,18 +47,11 @@ bot.callbackQuery("cancel", async (context) => {
     },
   };
 
-  context.socket.emit("message", JSON.stringify(request));
+  socket.emit('message', JSON.stringify(request));
 
   await context.answerCallbackQuery({
-    text: "Отменено",
+    text: 'Отменено',
   });
 });
-
-bot.use(catchFish);
-bot.use(createAccount);
-bot.use(deleteAccount);
-bot.use(leaders);
-bot.use(linkDiscord);
-bot.use(profile);
 
 bot.start();

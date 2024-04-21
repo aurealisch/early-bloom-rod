@@ -1,4 +1,4 @@
-import { Command } from "@sapphire/framework";
+import { Command } from '@sapphire/framework';
 
 export default class ChatInputCommand extends Command {
   public override registerApplicationCommands(registry: Command.Registry) {

@@ -1,13 +1,17 @@
 {
   "name": "@early-bloom-rod/game",
-  "version": "0.1.8",
-  "module": "src/index.ts",
+  "version": "0.2.6",
+  "description": "",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bun build.ts"
+  },
+  "keywords": [],
+  "author": "aurealisch <aurealisch@gmail.com>",
+  "license": "UNLICENSED",
+  "module": "src/index.ts",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
     "@types/bun": "latest"
   },
@@ -15,15 +19,14 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@early-bloom-rod/server": "*",
-    "@prisma/client": "^5.12.1",
+    "@early-bloom-rod/server": "^0.2.0",
     "@sapphire/utilities": "^3.15.3",
     "@trpc/client": "^11.0.0-rc.345",
     "bun-plugin-dts": "^0.2.3",
-    "prisma": "^5.12.1",
     "redis": "^4.6.13"
   },
-  "scripts": {
-    "build": "bun build.ts"
-  }
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
 }

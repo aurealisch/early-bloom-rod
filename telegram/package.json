@@ -1,20 +1,27 @@
 {
-  "name": "@schweppes/telegram",
-  "module": "index.ts",
+  "name": "@early-bloom-rod/telegram",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bun src/index.ts",
+    "start:watch": "bun --watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "aurealisch <aurealisch@gmail.com>",
+  "license": "UNLICENSED",
+  "module": "src/index.ts",
+  "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "scripts": {
-    "start": "bun src/index.ts",
-    "start:watch": "bun --watch src/index.ts"
-  },
-  "type": "module",
   "dependencies": {
-    "@early-bloom-rod/game": "*",
-    "@early-bloom-rod/io": "*",
+    "@early-bloom-rod/game": "^0.2.6",
+    "@early-bloom-rod/io": "^0.1.8",
+    "@sapphire/utilities": "^3.15.3",
     "grammy": "^1.22.4",
     "socket.io-client": "^4.7.5"
   }

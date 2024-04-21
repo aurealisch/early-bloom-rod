@@ -14,8 +14,10 @@ datasource db {
 }
 
 model User {
-  id         Int     @id @default(autoincrement())
-  discordId  String? @unique
-  telegramId String? @unique
-  fish       Int     @default(0)
+  id               Int     @id @default(autoincrement())
+  fish             Int     @default(0)
+  discordId        String? @unique
+  discordUsername  String?
+  telegramId       String? @unique
+  telegramUsername String?
 }

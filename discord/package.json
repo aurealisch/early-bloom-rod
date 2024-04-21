@@ -1,6 +1,15 @@
 {
   "name": "@early-bloom-rod/discord",
   "version": "0.1.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bun src/index.ts",
+    "start:watch": "bun --watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "aurealisch <aurealisch@gmail.com>",
+  "license": "UNLICENSED",
   "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
@@ -10,19 +19,13 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@early-bloom-rod/game": "^0.1.7",
-    "@early-bloom-rod/io": "*",
+    "@early-bloom-rod/game": "^0.2.6",
+    "@early-bloom-rod/io": "^0.1.8",
     "@sapphire/decorators": "^6.1.0",
     "@sapphire/framework": "^5.1.0",
     "@sapphire/time-utilities": "^1.7.12",
     "@sapphire/utilities": "^3.15.3",
-    "@trpc/client": "^11.0.0-rc.342",
     "discord.js": "^14.14.1",
-    "redis": "^4.6.13",
     "socket.io-client": "^4.7.5"
-  },
-  "scripts": {
-    "start": "bun src/index.ts",
-    "start:watch": "bun --watch src/index.ts"
   }
 }

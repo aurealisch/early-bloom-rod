@@ -1,5 +1,5 @@
-import { procedure } from "@/trpc";
-import { z } from "zod";
+import { procedure } from '@/trpc';
+import { z } from 'zod';
 
 export default procedure
   .input(

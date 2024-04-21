@@ -1,5 +1,5 @@
-import { procedure } from "@/trpc";
-import { z } from "zod";
+import { procedure } from '@/trpc';
+import { z } from 'zod';
 
 export default procedure
   .input(z.object({ id: z.number() }))
@@ -29,6 +29,6 @@ export default procedure
 
     return {
       catched,
-      user
+      user,
     };
   });
